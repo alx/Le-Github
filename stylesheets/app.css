@@ -15,6 +15,7 @@
 ----------------------------------------- */
 .container {
   width:384px;
+  margin: 0 auto;
   padding: 0;
 }
 
@@ -24,26 +25,63 @@
   min-width: 384px;
 }
 
+.block-grid.two-up {
+  margin-left: -2%;
+}
+
+.block-grid.two-up > li {
+  margin-left: 2%;
+  width: 48%;
+  margin-bottom: 2%;
+}
+
 #logo {
-  margin:0 auto;
-  text-align:center;
+  text-align: center;
 }
 
-span,img{padding:0;margin:0;border:0;}
-.fancy{
-	position:relative;
-	display:inline-block;
-	font-size:0;
-	line-height:0;
+
+#edition{
+  color:#000;
+  font-size:20px;
+  font-weight:bold;
+  float:right;
 }
 
-.fancy:after{
-	position:absolute;
-	top:1px;
-	left:1px;
-	bottom:1px;
-	right:1px;
-	border:1px solid rgba(255,255,255,0.5);
-	outline:1px solid rgba(0,0,0,0.2);
-	content:" ";
+ul {
+  color:#fff;
+  background-color: #000;
+  margin:0;
+}
+
+li {
+  color:#000;
+  background-color: #fff;
+  margin:0;
+}
+
+ul h2 {
+  color:#fff;
+  background-color: #000;
+  font-size:24px;
+  text-align:right;
+  margin: 0;
+}
+
+.count{
+  float:left;
+}
+
+.lang{
+  float:right;
+}
+
+li.project {
+  border-bottom: 3px solid #333;
+  font-size:16px;
+  text-align:right;
+  padding:2px;
+}
+
+li.project a{
+  color:#000;
 }

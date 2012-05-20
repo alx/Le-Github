@@ -1,7 +1,6 @@
 /* Foundation v2.2.1 http://foundation.zurb.com */
 jQuery(document).ready(function ($) {
-
-	/* Use this js doc for all application specific JS */
+  /* Use this js doc for all application specific JS */
 
 	/* TABS --------------------------------- */
 	/* Remove if you don't need :) */
@@ -94,6 +93,9 @@ jQuery(document).ready(function ($) {
 
 	/* DISABLED BUTTONS ------------- */
 	/* Gives elements with a class of 'disabled' a return: false; */
+  var yesterday = moment().subtract('days', 2);
+
+  $("#edition").html(yesterday.format("DD/MM/YYYY"));
 
    $.ajax({
       type: "GET",
@@ -105,12 +107,30 @@ jQuery(document).ready(function ($) {
 
         // If there was entry yesterday, select it
         var first_entry_day = moment(entries.find('updated')[0].textContent.split("T")[0], "YYYY-MM-DD");
-        var yesterday = moment().subtract('days', 1);
         if(first_entry_day.diff(yesterday, 'days') == 0){
           selected_entry = entries[0]
         }
 
         $("#octodex").html("<span class='fancy'><img src='" + $(selected_entry).find('img').attr('src') + "'></span>");
       }
+   });
+
+   $.getJSON(yesterday.format("[data-]YYYY-MM-DD[.json]"), function(data) {
+      var items = [];
+
+      $.each(data, function(key, repo) {
+        var items = [];
+        var max_count = repo[0]["count"];
+        $.each(repo, function(){
+          items.push("<li class='project'><span class='count black round label' style='padding-left:");
+          items.push(Math.abs(this["count"] * 50 / max_count));
+          items.push("px'>" + this["count"] + "</span>");
+          if(this["language"] != null)
+            items.push("<span class='lang black radius label'>" + this["language"] + "</span>");
+          items.push("<br><a href='http://github.com/" + this["owner"] + "/" + this["name"] + "/'>");
+          items.push(this["owner"] + "/" + this["name"] + "</a></li>");
+        });
+        $("#" + key).html(items.join(""));
+      });
    });
 });
