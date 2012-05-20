@@ -114,6 +114,7 @@ jQuery(document).ready(function ($) {
         $("#octodex").html("<span class='fancy'><img src='" + $(selected_entry).find('img').attr('src') + "'></span>");
       }
    });
+   $("#octodex").html("<span class='fancy'><img src='http://octodex.github.com/images/waldocat.jpg'></span>")
 
    $.getJSON(yesterday.format("[data-]YYYY-MM-DD[.json]"), function(data) {
       var items = [];
