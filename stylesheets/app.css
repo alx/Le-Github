@@ -14,17 +14,36 @@
    Shared Styles
 ----------------------------------------- */
 .container {
-  width:320px;
+  width:384px;
   padding: 0;
 }
 
 .row {
-  width:320px;
-  max-width: 320px;
-  min-width: 320px;
+  width:384px;
+  max-width: 384px;
+  min-width: 384px;
 }
 
 #logo {
   margin:0 auto;
   text-align:center;
+}
+
+span,img{padding:0;margin:0;border:0;}
+.fancy{
+	position:relative;
+	display:inline-block;
+	font-size:0;
+	line-height:0;
+}
+
+.fancy:after{
+	position:absolute;
+	top:1px;
+	left:1px;
+	bottom:1px;
+	right:1px;
+	border:1px solid rgba(255,255,255,0.5);
+	outline:1px solid rgba(0,0,0,0.2);
+	content:" ";
 }

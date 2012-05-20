@@ -94,4 +94,23 @@ jQuery(document).ready(function ($) {
 
 	/* DISABLED BUTTONS ------------- */
 	/* Gives elements with a class of 'disabled' a return: false; */
+
+   $.ajax({
+      type: "GET",
+      url: "http://feeds.feedburner.com/Octocats?format=xml",
+      dataType: "xml",
+      success: function(xml) {
+        var entries = $(xml).find('entry');
+        var selected_entry = entries[Math.floor(Math.random()*(entries.length + 1))];
+
+        // If there was entry yesterday, select it
+        var first_entry_day = moment(entries.find('updated')[0].textContent.split("T")[0], "YYYY-MM-DD");
+        var yesterday = moment().subtract('days', 1);
+        if(first_entry_day.diff(yesterday, 'days') == 0){
+          selected_entry = entries[0]
+        }
+
+        $("#octodex").html("<span class='fancy'><img src='" + $(selected_entry).find('img').attr('src') + "'></span>");
+      }
+   });
 });
