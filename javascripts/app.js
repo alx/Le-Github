@@ -93,7 +93,7 @@ jQuery(document).ready(function ($) {
 
 	/* DISABLED BUTTONS ------------- */
 	/* Gives elements with a class of 'disabled' a return: false; */
-  var yesterday = moment().subtract('days', 2);
+  var yesterday = moment(new Date(2012, 4, 19));
 
   $("#edition").html(yesterday.format("DD/MM/YYYY"));
 
