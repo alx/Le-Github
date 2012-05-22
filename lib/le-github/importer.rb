@@ -6,7 +6,7 @@ require 'yajl'
 require 'json'
 
 module LeGithubImporter
-  def self.at_date(date)
+  def self.from_date(date, output)
     data = []
     2.times do |index|
       url = "http://data.githubarchive.org/#{date.strftime("%Y-%m-%d")}-#{index}.json.gz"
@@ -29,10 +29,10 @@ module LeGithubImporter
       p "DataCount for #{key}"
       data.select{|event| event["type"] == key}.each do |event|
         repo_name = event["repository"]["name"]
-        if existing_event = json[key].select{|repo| repo["repository"]["name"] == repo_name}.first
+        if existing_event = json_data[key].select{|repo| repo["repository"]["name"] == repo_name}.first
           existing_event["count"] += 1
         else
-          json[key] << event.merge({"count" => 1})
+          json_data[key] << event.merge({"count" => 1})
         end
       end
     end
@@ -49,7 +49,7 @@ module LeGithubImporter
       end
     end
     
-    File.open("/tmp/data-#{date.strftime("%Y-%m-%d")}.json", "w") do |file|
+    File.open(output, "w") do |file|
       file.write json_data.to_json
     end
   end

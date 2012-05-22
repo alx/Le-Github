@@ -93,9 +93,21 @@ jQuery(document).ready(function ($) {
 
 	/* DISABLED BUTTONS ------------- */
 	/* Gives elements with a class of 'disabled' a return: false; */
-  var yesterday = moment().subtract('days', 2);
 
-  $("#edition").html(yesterday.format("DD/MM/YYYY"));
+  function getParameterByName(name)
+  {
+    name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+    var regexS = "[\\?&]" + name + "=([^&#]*)";
+    var regex = new RegExp(regexS);
+    var results = regex.exec(window.location.search);
+    if(results == null)
+      return "";
+    else
+      return decodeURIComponent(results[1].replace(/\+/g, " "));
+  }
+
+  var display_date = moment(getParameterByName("date"), "YYYY-MM-DD");
+  $("#edition").html(display_date.format("DD/MM/YYYY"));
 
    $.ajax({
       type: "GET",
@@ -105,9 +117,9 @@ jQuery(document).ready(function ($) {
         var entries = $(xml).find('entry');
         var selected_entry = entries[Math.floor(Math.random()*(entries.length + 1))];
 
-        // If there was entry yesterday, select it
+        // If there was entry display_date, select it
         var first_entry_day = moment(entries.find('updated')[0].textContent.split("T")[0], "YYYY-MM-DD");
-        if(first_entry_day.diff(yesterday, 'days') == 0){
+        if(first_entry_day.diff(display_date, 'days') == 0){
           selected_entry = entries[0]
         }
 
@@ -115,9 +127,9 @@ jQuery(document).ready(function ($) {
       }
    });
 
-   $.getJSON(yesterday.format("[data-]YYYY-MM-DD[.json]"), function(data) {
+   $.getJSON("file:///tmp/" + display_date.format("YYYY-MM-DD[.json]"), function(data) {
       var items = [];
-
+      console.log("data: " + data.length);
       $.each(data, function(key, repo) {
         var items = [];
         var max_count = repo[0]["count"];

@@ -23,13 +23,20 @@ require "date"
 require "le-github"
 
 date = DateTime.now - 2
-output = "/tmp/output.jpg"
+image_output = "/tmp/output.jpg"
 
 # Import data
-LeGithubImporter.at(date)
+json_path = File.join("/tmp", "#{date.strftime("%Y-%m-%d")}.json")
+LeGithubImporter.from_date(date, json_path)
 
 # Webpage scraping
-`phantomjs --local-to-remote-url-access=yes rasterise.js #{date.strftime("%Y-%m-%d")} #{output}`
+rasterize_path = File.join(File.dirname(__FILE__), "../views", "rasterise.js")
+p "Webpage scraping: #{rasterize_path} to #{image_output}"
+`phantomjs --local-to-remote-url-access=yes #{rasterize_path} #{date.strftime("%Y-%m-%d")} #{image_output}`
 
 # Print
-LeGithubPrinter.print(output)
+begin
+  LeGithubPrinter.print(image_output)
+rescue => e
+  p "Error while printing: #{e}"
+end
