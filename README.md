@@ -1,3 +1,11 @@
+## Howto
+
+Just one command, every morning before breakfast: 
+
+```
+le-github
+```
+
 ## Process
 
 ### BigQuery import
