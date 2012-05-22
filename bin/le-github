@@ -26,10 +26,10 @@ date = DateTime.now - 2
 output = "/tmp/output.jpg"
 
 # Import data
-Importer.new(date).import!
+LeGithubImporter.at(date)
 
 # Webpage scraping
 `phantomjs --local-to-remote-url-access=yes rasterise.js #{date.strftime("%Y-%m-%d")} #{output}`
 
 # Print
-Printer.new(output).print!
+LeGithubPrinter.print(output)

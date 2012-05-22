@@ -3,7 +3,7 @@ require 'date'
 require 'a2_printer'
 require 'RMagick'
 
-module Printer
+module LeGithubPrinter
   def self.print(filename)
     serial = SerialConnection.new
     printer = A2Printer.new serial

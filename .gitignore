@@ -1,4 +1,3 @@
 output.jpg
 *.jpg
-data-2012-05-19.json data-2012-05-20.json data-2012.json
-pkg/le-github-0.0.99.gem pkg/le_github-0.0.99.gem
+pkg/*

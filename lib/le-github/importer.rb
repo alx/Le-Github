@@ -5,8 +5,8 @@ require 'zlib'
 require 'yajl'
 require 'json'
 
-module Importer
-  def self.import(date)
+module LeGithubImporter
+  def self.at_date(date)
     data = []
     2.times do |index|
       url = "http://data.githubarchive.org/#{date.strftime("%Y-%m-%d")}-#{index}.json.gz"
