@@ -3,34 +3,33 @@
 Just one command, every morning before breakfast: 
 
 ```
-le-github
+le_github
 ```
 
-## Process
+## Workflow
 
-### BigQuery import
+![views/images/workflow.png](Workflow diagram)
+
+### Data import
 
 https://github.com/igrigorik/githubarchive.org
 
-### Page Layout and d3.js graphs
+### Page Layout
 
-Zurb foundation
-
-d3js.org
-
-http://zmoazeni.github.com/github-data/bubble/
+The Zurb foundation
 
 ### Webpage scraping
 
-Pour le screengrab de la page html que je suis en train de dev pour "Le Github", j'utilises phantomjs - http://www.phantomjs.org/ - qui exporte une image:
+Discovered in [Freerange Printer](https://github.com/freerange/printer/) project, you can use [PhantomJS](http://www.phantomjs.org/) to render a webpage in an image file:
 
 ```
-phantomjs --local-to-remote-url-access=yes rasterize.js
+phantomjs --local-to-remote-url-access=yes rasterize.js YYYY-MM-DD /tmp/output.jpg
 ```
 
 ### Image printing
 
-puis je passe cette image dans la lib a2_printer:
+[a2_printer](http://github.com/alx/a2_printer) lib can be used to send
+the rendered image file to the thermo-printer:
 
 ```
 require 'rubygems'
@@ -41,6 +40,8 @@ printer = A2Printer.new serial
 
 printer.begin
 printer.set_default
-printer.print_image("/Users/alx/code/le_github/output.jpg")
+printer.print_image("/tmp/output.jpg")
 ```
 
+*LeGithubPrinter* allows to split the image file to inject because only
+384x384 pixels image are currently accepted in *a2_printer* lib
