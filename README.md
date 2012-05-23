@@ -1,3 +1,18 @@
+# Le Github : a daily newspaper with Github Data
+
+![Edition du 20/05/2012](https://github.com/alx/Le-Github/raw/master/views/images/example.jpg)
+
+## Requirements
+
+* [1 Arduino](http://arduino.cc)
+* [1 Adafruit Thermo Printer](http://adafruit.com/products/600)
+* **le_github** gem: 
+
+```
+gem install le_github
+```
+
+
 ## Howto
 
 Just one command, every morning before breakfast: 
