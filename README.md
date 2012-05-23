@@ -8,7 +8,7 @@ le_github
 
 ## Workflow
 
-![views/images/workflow.png](Workflow diagram)
+![https://github.com/alx/Le-Github/raw/master/views/images/workflow.png](Workflow diagram)
 
 ### Data import
 
