@@ -62,3 +62,5 @@ printer.print_image("/tmp/output.jpg")
 ## Result
 
 ![Edition du 20/05/2012](https://github.com/alx/Le-Github/raw/master/views/images/example.jpg)
+
+![on paper](http://i.imgur.com/SS3Ta.jpg)
