@@ -1,7 +1,5 @@
 # Le Github : a daily newspaper with Github Data
 
-![Edition du 20/05/2012](https://github.com/alx/Le-Github/raw/master/views/images/example.jpg)
-
 ## Requirements
 
 * [1 Arduino](http://arduino.cc)
@@ -60,3 +58,7 @@ printer.print_image("/tmp/output.jpg")
 
 **LeGithubPrinter** allows to split the image file to inject because only
 384x384 pixels image are currently accepted in **a2_printer** lib
+
+## Result
+
+![Edition du 20/05/2012](https://github.com/alx/Le-Github/raw/master/views/images/example.jpg)
