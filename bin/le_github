@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 #
-# le-github (c)2012 hi@alexgirard.com
+# le_github (c)2012 hi@alexgirard.com
 #
 
 #            DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE 
@@ -20,7 +20,7 @@
 #
 require "rubygems"
 require "date"
-require "le-github"
+require "le_github"
 
 date = DateTime.now - 2
 image_output = "/tmp/output.jpg"

@@ -1,9 +1,9 @@
 # -*- encoding: utf-8 -*-
 $:.push File.expand_path("../lib", __FILE__)
-require "le-github/version"
+require "le_github/version"
 
 Gem::Specification.new do |s|
-  s.name        = "le-github"
+  s.name        = "le_github"
   s.version     = LeGithub::VERSION
   s.authors     = ["Alx"]
   s.email       = ["hi@alexgirard.com"]

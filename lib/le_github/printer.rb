@@ -1,4 +1,4 @@
-require "le-github/version"
+require "le_github/version"
 require 'date'
 require 'a2_printer'
 require 'RMagick'

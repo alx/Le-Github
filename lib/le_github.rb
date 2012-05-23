@@ -1,5 +1,5 @@
 #
-# le-github (c)2012 hi@alexgirard.com
+# le_github (c)2012 hi@alexgirard.com
 #
 
 #
@@ -17,6 +17,6 @@
 #
 #  0. You just DO WHAT THE FUCK YOU WANT TO.
 
-require "le-github/version"
-require "le-github/importer"
-require "le-github/printer"
+require "le_github/version"
+require "le_github/importer"
+require "le_github/printer"
