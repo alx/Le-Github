@@ -1,6 +1,6 @@
 # Le Github : a daily newspaper with Github Data
 
-**Success!!!**, it made 3rd position on [Github Data Challenge](https://github.com/blog/1162-github-data-challenge-winners)
+**Success!!!** finished 3rd on [Github Data Challenge](https://github.com/blog/1162-github-data-challenge-winners)
 
 ## Requirements
 
