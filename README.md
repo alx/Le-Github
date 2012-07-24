@@ -25,6 +25,16 @@ le_github
 
 ![Workflow diagram](https://github.com/alx/Le-Github/raw/master/views/images/workflow.png)
 
+### Arduino programming
+
+You'll need an Arduino for this setup, it'll just be used as a passthrough to your a2_printer.
+
+To do so:
+
+* Connect your a2_printer rx/tx wires to your arduino rx/tx pins (usually, digital pins 0 and 1)
+* program your arduino with an empty sketch
+* now, reading and writing on usb device from your host will go through your arduino to speak with your a2_printer
+
 ### Data import
 
 Instead of using directly Google BigQuery, **LeGithubImporter** is fetching its data from [Github Archive](https://github.com/igrigorik/githubarchive.org) website to build a large json of the last day, and to map it to something way lighter for later display in *views/index.html*
